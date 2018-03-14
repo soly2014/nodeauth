@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partials/head %>
+</head>
+<body class="container">
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+		<div class="jumbotron">
+			<h1>Sign Up</h1>
+			<%if (typeof errors != "undefined") { %>
+			<ol class="list-group">
+    			<%for (error in errors) { %>
+				<li class="alert alert-danger"><%= errors[error]['msg'] %></li>
+				<% } %>
+			</ol>
+			<% } %>
+			<form method="post" action="/auth/signup" enctype="multipart/form-data">
+				<div class="form-group"> <input type="text" name="fullname" placeholder="fullname" class="form-control"> </div>
+				<div class="form-group"> <input type="text" name="email" placeholder="email" class="form-control"> </div>
+				<div class="form-group"> <input type="text" name="username" placeholder="username" class="form-control"> </div>
+				<div class="form-group"> <input type="password" name="password" placeholder="password" class="form-control" autocomplete="none"> </div>
+				<div class="form-group"> <input type="password_confirmation" name="password_confirmation" placeholder="password confirmation" class="form-control"> </div>
+				<div class="form-group"> <input type="file" name="profile_pic" placeholder="Profile Pic" class="form-control"> </div>
+				<div class="form-group"> <button type="submit" class="btn btn-success">Sign Up</button> </div>
+			</form>
+		</div>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+	
+</body>
+</html>
